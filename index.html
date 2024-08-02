@@ -10,12 +10,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="container col-lg-4">
-    <h1 class="mt-5">
-        Vue TodoMVC
+    <h1 class="mt-5"> <!-- QUESTION!!! is this just like neutron mt-5 for styles-->
+        Vue TodoMVC <!-- margin top then level- bootstrap in neutron for utility class: thing that does 1 thing. ex. deblock= display;block, just one off thing, if you want to finetune one thing-->
     </h1>
+    <!-- this exists outside of vue, can only target it to change with standard javascript -->
 
     <!-- This div, with the ID "app", is where the application appears when it runs. -->
-    <div id="app"></div>
+    <div id="app"></div> <!--QUESTION!! what is purpose of its location right here (if any, HTML structure= any contenet gets rendered inside body tag
+    react would be root instead of app  -->
+    <!-- whenn vue loads it does doc get element by id app then inhjects stuff into it -->
 
     <!-- This unusual tag is a script text/template. It does not actually appear on the page as HTML. However, Vue can reference this HTML by ID and use it essentially as a template string. -->
     <script type="text/x-template" id="app-template">
@@ -23,11 +26,11 @@
 
             <!-- Here the v:on attribute is used, which is used to respond to any event. In this case, when the "click" event happens, it causes the value of showComplete to be changed. It is attached here to the label. -->
             <h4>
-                <label v-on:click="showComplete = !showComplete">
+                <label v-on:click="showComplete = !showComplete"> <!-- QUESTION!!! this does opposite of show complete method right-->
 
                     <!-- The v-model attribute causes the checkdness of this box to always mirror the application's state  -->
                     <input type="checkbox" v-model="showComplete">
-                    Show Completed
+                    Show Completed :P
                 </label>
             </h4>
 
@@ -35,7 +38,9 @@
             <ul class="list-group">
 
                 <!-- The v-for attribute that we see here repeats whatever tag it is on (in this case, a LI) one time for each element of the referenced list, which in this case is our list. Each repetition, the property has a different value.  -->
-                <li v-for="todo in filteredTodos" class="list-group-item" v-on:click="todo.complete = !todo.complete;">
+                <li v-for="todo in filteredTodos" class="list-group-item" v-on:click="todo.complete = !todo.complete;"> <!-- QUESTIONS!! is .complete a function, what is this-->
+                    <!-- for each item in filtered todos using keyword todo keyword called complete-->
+                     <!-- todo is new variable name, in is canon word like in for each loop, filteredTodos name of list-->
                     <label class="form-check-label ml-4">
                         <input
                                 type="checkbox"
@@ -73,7 +78,10 @@
 
     <!-- Vue can be included as a script tag at the end of the application's HTML. There is no need for a build step at all, if you don't want one. -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!--script saying we have external file bringing into project-->
+    <!-- statically host files -->
 
     <!-- Finally, the JavaScript file containing our application logic. -->
     <script src="app.js"></script>
+    <!-- src like import but for simple stuff- not bundling like import -->
 </body>

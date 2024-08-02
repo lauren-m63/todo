@@ -1,8 +1,3 @@
-/**
- * Vue TODOMVC Application
- * Author : Daniel Stern
- * Free to use and modify without attribution.
- **/
 
 /**
  * The todos are the "model" of this application. In a real-world example, they would probably be loaded asynchronously, though they could also be injected via server-side rendering.
@@ -17,7 +12,14 @@ let todos = [{
 },{
     name: "Upgrade Component",
     complete: false
+},{
+    name: "hello",
+    complete: true,
 }];
+
+//real world list: would have database with list of items associated to user id
+// wouldnt have statically coded array- would query database for user id 4 then output them 
+// data your outputting is similar array but data coming from request in diff location 
 
 /**
  * All Vue applications are initialized with a `new Vue()` method call. The object that is passed to the method call is the configuration for our whole application.
@@ -27,6 +29,10 @@ new Vue({
      * The "el" option indicates which HTML element the application should initially load, into. If you look at `index.html`, you will notice a div tag with the ID #app. This initial load process is also known as "bootstrapping."
      */
     el:`#app`,
+
+    //vue renders everythign in container in DOM- makes little playground for application
+    // all output is in script file and then everything gets rendered inside app id 
+    // if view source of page your running wouldnt see any code just html 
 
     /**
      * The template for the application defines the basic structure of its HTML.
@@ -44,7 +50,7 @@ new Vue({
             todos,
             text:``,
             showComplete:true,
-        }
+        } //this is putting the list above into action right? 
     ),
 
     /**
